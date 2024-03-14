@@ -1,0 +1,7 @@
+version: '3'
+services:
+  linker_bot_service:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: always

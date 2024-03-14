@@ -32,8 +32,7 @@ Ensure Docker is installed on your system. Visit [Docker's official site](https:
 ### Build & Run
 
 ```bash
-docker build -t linkify_bot .
-docker run --rm --name linkify_bot_container linkify_bot
+docker compose up -d
 ```
 
 ## Note
