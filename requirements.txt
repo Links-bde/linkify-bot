@@ -1,0 +1,3 @@
+rembg[cli]
+py-cord
+python-dotenv
