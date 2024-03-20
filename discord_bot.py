@@ -14,9 +14,9 @@ async def on_ready():
     print(f"{bot.user} is ready and online!")
 
 @bot.slash_command(name="linkify", description="Linkify a student")
-async def linkify(ctx, login: str):
+async def linkify(ctx, login: str, flip: bool = False, debug: bool = False):
     await ctx.defer() # Defer the response to avoid the "This interaction failed" error
-    image = await asyncio.to_thread(linkify_lib.linkify_user, login) # Run the blocking function in a separate thread
+    image = await asyncio.to_thread(linkify_lib.linkify_user, login, flip, debug)
     if image is None:
         await ctx.respond("Couldn't find that login.")
     else:
