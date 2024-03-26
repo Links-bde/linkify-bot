@@ -93,7 +93,13 @@ def linkify_image(input_image, hat_image, hat_face_width, hat_face_height, show_
 	faces = face_cascade.detectMultiScale(cv2.cvtColor(image_cv, cv2.COLOR_BGR2GRAY), 1.1, 4)
 	print(f"detected {len(faces)} faces")
 
+	bigest_width = 0
 	for (x, y, w, h) in faces:
+		bigest_width = max(w, bigest_width)
+
+	for (x, y, w, h) in faces:
+		if (bigest_width != w):
+			continue
 		scale_factor = w / hat_face_width
 		new_width = int(hat_image.width * scale_factor)
 		new_height = int(hat_image.height * scale_factor)
